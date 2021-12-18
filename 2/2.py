@@ -8,23 +8,26 @@ def main(file_name):
 
     depth = 0
     distance = 0
+    aim = 0
 
     for line in lines:
         [direction, amount] = line.split()
         amount = int(amount)
+        
         if direction == 'forward':
             distance += amount
-         
+            depth += aim * amount            
+
         elif direction == 'up':
-            depth -= amount
+            aim -= amount
             
         elif direction == 'down':
-            depth += amount
+            aim += amount
 
-    print(depth * distance)
+    print('depth', depth, 'distance', distance, 'total', depth * distance)
 
 
-main("test_case.txt")
+main("input.txt")
 
 
 
